@@ -9,5 +9,4 @@ class SsadagameApplicationTests {
     @Test
     fun contextLoads() {
     }
-
 }

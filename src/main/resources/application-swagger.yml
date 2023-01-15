@@ -1,0 +1,24 @@
+swagger:
+  title: SsadaGame API
+  description: description of SsadaGame API
+  version: 1.0
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+    persist-authorization: true
+    operationsSorter: alpha
+    tagsSorter: alpha
+  default-produces-media-type: application/json
+  writer-with-order-by-keys: true
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+springdoc:
+  swagger-ui:
+    enabled: false
+  api-docs:
+    enabled: false
