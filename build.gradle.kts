@@ -18,7 +18,7 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.2")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
@@ -26,6 +26,11 @@ dependencies {
     implementation("org.springdoc:springdoc-openapi-kotlin:1.6.14")
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-jackson:2.9.0")
+
+    implementation("org.jsoup:jsoup:1.15.3")
+
+    implementation("org.json:json:20220924")
 
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 

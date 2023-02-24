@@ -2,5 +2,6 @@ spring:
   config:
     import:
       - application-swagger.yml
+      - application-client.yml
   profiles:
     active: dev
