@@ -2,6 +2,7 @@ package com.sincheon.ssadagame.intrastructure.client.steam
 
 import com.sincheon.ssadagame.domain.Game
 import com.sincheon.ssadagame.domain.PriceInfo
+import com.sincheon.ssadagame.domain.PriceInfo.Companion.getOnlyNumber
 import org.jsoup.Jsoup
 
 object SteamMapper {
@@ -17,8 +18,8 @@ object SteamMapper {
                 mutableListOf(
                     PriceInfo(
                         provider = PriceInfo.Provider.STEAM,
-                        price = prices.first().trim(),
-                        discountPrice = prices.last().trim(),
+                        price = getOnlyNumber(prices.first().trim()),
+                        discountPrice = getOnlyNumber(prices.last().trim()),
                         url = it.attr("href"),
                     )
                 )

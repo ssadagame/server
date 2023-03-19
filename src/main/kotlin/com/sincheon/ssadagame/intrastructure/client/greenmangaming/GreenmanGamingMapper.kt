@@ -1,6 +1,7 @@
 package com.sincheon.ssadagame.intrastructure.client.greenmangaming
 
 import com.sincheon.ssadagame.domain.PriceInfo
+import com.sincheon.ssadagame.domain.PriceInfo.Companion.getOnlyNumber
 import com.sincheon.ssadagame.intrastructure.client.greenmangaming.response.SearchResultsResponse
 import com.sincheon.ssadagame.intrastructure.config.properties.ClientProperties
 import org.springframework.stereotype.Component
@@ -16,8 +17,8 @@ class GreenmanGamingMapper(
                 PriceInfo(
                     provider = PriceInfo.Provider.GREENMANGAMING,
                     url = "${clientProperties.greenmanGaming.frontUrl}${it.url}",
-                    price = it.region.kr.rrp.toString(),
-                    discountPrice = it.region.kr.drp.toString(),
+                    price = getOnlyNumber(it.region.kr.rrp.toString()),
+                    discountPrice = getOnlyNumber(it.region.kr.drp.toString()),
                 )
             }
 }
