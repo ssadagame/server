@@ -3,5 +3,6 @@ spring:
     import:
       - application-swagger.yml
       - application-client.yml
+      - application-redis.yml
   profiles:
     active: dev

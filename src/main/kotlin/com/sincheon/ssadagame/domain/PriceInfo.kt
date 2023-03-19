@@ -23,7 +23,7 @@ data class PriceInfo(
         return ((price - currentPrice) * 100 / price).roundToInt().toString() + "%"
     }
 
-    companion object{
+    companion object {
         fun getOnlyNumber(price: String) = price.replace(Regex("\\D"), "").ifEmpty { null }
     }
 
