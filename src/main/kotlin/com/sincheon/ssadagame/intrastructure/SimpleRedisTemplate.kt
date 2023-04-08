@@ -6,16 +6,16 @@ import org.springframework.stereotype.Component
 
 @Component
 class SimpleRedisTemplate(
-    private val redisTemplate: StringRedisTemplate,
-    private val objectMapper: ObjectMapper,
+    redisTemplate: StringRedisTemplate,
+    val objectMapper: ObjectMapper,
 ) {
-    fun get(key: String, clazz: Class<*>): Any? {
-        return objectMapper.readValue(valueOperations.get(key), clazz)
+    final inline fun <reified T> get(key: String): T? {
+        return valueOperations.get(key)?.let { objectMapper.readValue(it, T::class.java) }
     }
 
     fun set(key: String, value: Any) {
         valueOperations.set(key, objectMapper.writeValueAsString(value))
     }
 
-    private val valueOperations = redisTemplate.opsForValue()
+    val valueOperations = redisTemplate.opsForValue()
 }
