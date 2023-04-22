@@ -1,4 +1,4 @@
-package com.sincheon.ssadagame.intrastructure.config
+package com.sincheon.ssadagame.infrastructure.redis.config
 
 import io.lettuce.core.ReadFrom.REPLICA_PREFERRED
 import org.springframework.beans.factory.annotation.Value

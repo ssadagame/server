@@ -1,4 +1,4 @@
-package com.sincheon.ssadagame.intrastructure
+package com.sincheon.ssadagame.infrastructure.redis
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.data.redis.core.StringRedisTemplate

@@ -1,7 +1,7 @@
 package com.sincheon.ssadagame.application.service
 
 import com.sincheon.ssadagame.application.model.GamePage
-import com.sincheon.ssadagame.intrastructure.SimpleRedisTemplate
+import com.sincheon.ssadagame.infrastructure.redis.SimpleRedisTemplate
 import org.springframework.context.annotation.Primary
 import org.springframework.stereotype.Service
 

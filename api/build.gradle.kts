@@ -29,6 +29,7 @@ dependencies {
     implementation("org.json:json:20220924")
 
     implementation(project.project(":domain"))
+    implementation(project.project(":infrastructure"))
 
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
