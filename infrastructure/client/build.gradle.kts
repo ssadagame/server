@@ -8,27 +8,21 @@ plugins {
 
 java.sourceCompatibility = JavaVersion.VERSION_11
 
-dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.data:spring-data-redis")
+repositories {
+    mavenCentral()
+}
 
-    implementation("io.lettuce:lettuce-core:6.2.3.RELEASE")
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.2")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-
-    implementation("org.springdoc:springdoc-openapi-ui:1.6.14")
-    implementation("org.springdoc:springdoc-openapi-kotlin:1.6.14")
-
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-jackson:2.9.0")
-
     implementation("org.json:json:20220924")
+    implementation("org.jsoup:jsoup:1.15.3")
 
     implementation(project.project(":domain"))
-    implementation(project.project(":infrastructure:redis"))
-    implementation(project.project(":infrastructure:client"))
 
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
@@ -42,4 +36,4 @@ tasks.register<Copy>("copyPreCommit") {
         fileMode = 0b111101101
     }
 }
-tasks.getByPath(":api:compileKotlin").dependsOn("copyPreCommit")
+tasks.getByPath(":infrastructure:client:compileKotlin").dependsOn("copyPreCommit")

@@ -1,8 +1,8 @@
 package com.sincheon.ssadagame.application.service
 
 import com.sincheon.ssadagame.application.model.GamePage
-import com.sincheon.ssadagame.intrastructure.client.steam.SteamClient
-import com.sincheon.ssadagame.intrastructure.client.steam.SteamMapper
+import com.sincheon.ssadagame.infrastructure.client.steam.SteamClient
+import com.sincheon.ssadagame.infrastructure.client.steam.SteamMapper
 import org.springframework.stereotype.Component
 
 @Component
