@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class SsadagameApplication
+class SsadagameApiApplication
 
 fun main(args: Array<String>) {
-    runApplication<SsadagameApplication>(*args)
+    runApplication<SsadagameApiApplication>(*args)
 }
