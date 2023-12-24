@@ -1,4 +1,4 @@
-package com.sincheon.ssadagame.batch
+package com.sincheon.ssadagame
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

@@ -1,0 +1,7 @@
+client:
+  steam:
+    serverUrl: "https://store.steampowered.com"
+    frontUrl: "https://store.steampowered.com"
+  greenman-gaming:
+    serverUrl: "https://sczizsp09z-2.algolianet.com"
+    frontUrl: "https://www.greenmangaming.com"

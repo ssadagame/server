@@ -1,0 +1,11 @@
+spring:
+  config:
+    import:
+      - application-database.yml
+      - application-redis.yml
+      - application-client.yml
+  profiles:
+    active: dev
+  batch:
+    job:
+      enabled: false
