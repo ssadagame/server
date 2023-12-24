@@ -13,9 +13,15 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.data:spring-data-redis")
+    implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.2")
+    implementation(project.project(":domain"))
+    implementation(project.project(":infrastructure:redis"))
+    implementation(project.project(":infrastructure:client"))
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks.register<Copy>("copyPreCommit") {
@@ -25,4 +31,4 @@ tasks.register<Copy>("copyPreCommit") {
         fileMode = 0b111101101
     }
 }
-tasks.getByPath(":infrastructure:redis:compileKotlin").dependsOn("copyPreCommit")
+tasks.getByPath(":domain-adapter:compileKotlin").dependsOn("copyPreCommit")

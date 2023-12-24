@@ -10,8 +10,8 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.data:spring-data-redis")
 
+    implementation("org.springframework.data:spring-data-redis")
     implementation("io.lettuce:lettuce-core:6.2.3.RELEASE")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.2")
@@ -27,6 +27,7 @@ dependencies {
     implementation("org.json:json:20220924")
 
     implementation(project.project(":domain"))
+    implementation(project.project(":domain-adapter"))
     implementation(project.project(":infrastructure:redis"))
     implementation(project.project(":infrastructure:client"))
 

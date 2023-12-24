@@ -1,8 +1,8 @@
 package com.sincheon.ssadagame.infrastructure.client.steam
 
-import com.sincheon.ssadagame.domain.Game
-import com.sincheon.ssadagame.domain.PriceInfo
-import com.sincheon.ssadagame.domain.PriceInfo.Companion.getOnlyNumber
+import com.sincheon.ssadagame.domain.game.model.Game
+import com.sincheon.ssadagame.domain.game.model.PriceInfo
+import com.sincheon.ssadagame.domain.game.model.PriceInfo.Companion.getOnlyNumber
 import org.jsoup.Jsoup
 
 object SteamMapper {
@@ -14,15 +14,16 @@ object SteamMapper {
             val prices = childElement.select("> div.col.search_price_discount_combined.responsive_secondrow > div.col.search_price.responsive_secondrow")[0]
                 .text().replace("""[,₩]\s?""".toRegex(), "").split(" ")
             Game(
-                name,
-                mutableListOf(
+                name = name,
+                imageUrl = "",
+                priceInfo = mutableListOf(
                     PriceInfo(
                         provider = PriceInfo.Provider.STEAM,
                         price = getOnlyNumber(prices.first().trim()),
                         discountPrice = getOnlyNumber(prices.last().trim()),
                         url = it.attr("href"),
                     )
-                )
+                ),
             )
         }
     }
