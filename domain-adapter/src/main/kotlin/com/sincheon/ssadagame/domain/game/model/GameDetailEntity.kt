@@ -15,6 +15,7 @@ import javax.persistence.Table
     name = "game_detail",
     indexes = [
         Index(name = "idx_app_id", columnList = "appId", unique = true),
+        Index(name = "idx_name", columnList = "name", unique = false),
     ]
 )
 class GameDetailEntity(

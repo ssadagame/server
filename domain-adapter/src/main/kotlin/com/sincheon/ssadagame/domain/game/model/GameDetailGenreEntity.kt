@@ -8,8 +8,12 @@ import javax.persistence.Entity
 import javax.persistence.JoinColumn
 import javax.persistence.ManyToOne
 import javax.persistence.MapsId
+import javax.persistence.Table
 
 @Entity
+@Table(
+    name = "game_detail_genre",
+)
 class GameDetailGenreEntity(
     @EmbeddedId
     val id: GameDetailGenreKey,
