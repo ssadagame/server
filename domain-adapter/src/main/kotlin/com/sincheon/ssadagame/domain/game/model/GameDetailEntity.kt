@@ -3,6 +3,8 @@ package com.sincheon.ssadagame.domain.game.model
 import javax.persistence.AttributeConverter
 import javax.persistence.Convert
 import javax.persistence.Entity
+import javax.persistence.EnumType
+import javax.persistence.Enumerated
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
@@ -24,6 +26,7 @@ class GameDetailEntity(
     val id: Long? = null,
     val appId: Long,
     val name: String,
+    @Enumerated(EnumType.STRING)
     val type: Type,
     val headerImage: String,
     val capsuleImage: String,
