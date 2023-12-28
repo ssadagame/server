@@ -2,10 +2,16 @@
 
 echo "Running git pre-commit hook"
 
-./gradlew ktlintCheck --daemon
+CHANGED_FILES="$(git --no-pager diff --name-status --no-color --cached | awk '$1 != "D" && $2 ~ /\.kts|\.kt/ { print $2}')"
 
-STATUS=$?
+if [ -z "$CHANGED_FILES" ]; then
+    echo "No Kotlin staged files."
+    exit 0
+fi;
 
-# return 1 exit code if running checks fails
-[ $STATUS -ne 0 ] && exit 1
-exit 0
+echo "Running ktlint over these files:"
+echo "$CHANGED_FILES"
+
+./gradlew --quiet ktlintFormat -PinternalKtlintGitFilter="$CHANGED_FILES"
+
+echo "Completed ktlint format."
