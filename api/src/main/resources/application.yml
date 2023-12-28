@@ -1,9 +1,9 @@
 spring:
+  profiles:
+    active: local
   config:
     import:
       - application-swagger.yml
       - application-client.yml
       - application-redis.yml
       - application-database.yml
-  profiles:
-    active: dev

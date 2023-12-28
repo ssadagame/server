@@ -13,10 +13,8 @@ springdoc:
   writer-with-order-by-keys: true
 
 ---
-spring:
-  config:
-    activate:
-      on-profile: prod
+spring.config.activate.on-profile: prod
+
 springdoc:
   swagger-ui:
     enabled: false
