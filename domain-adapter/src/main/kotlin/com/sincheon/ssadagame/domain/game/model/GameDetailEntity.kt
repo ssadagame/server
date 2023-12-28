@@ -1,6 +1,7 @@
 package com.sincheon.ssadagame.domain.game.model
 
 import javax.persistence.AttributeConverter
+import javax.persistence.Column
 import javax.persistence.Convert
 import javax.persistence.Entity
 import javax.persistence.EnumType
@@ -31,8 +32,10 @@ class GameDetailEntity(
     val headerImage: String,
     val capsuleImage: String,
     @Convert(converter = StringListConverter::class)
+    @Column(length = 1500)
     val thumbnailImages: List<String>,
     @Convert(converter = StringListConverter::class)
+    @Column(length = 1500)
     val originalImages: List<String>,
     @OneToMany(mappedBy = "gameDetail")
     val genres: Set<GameDetailGenreEntity>,
