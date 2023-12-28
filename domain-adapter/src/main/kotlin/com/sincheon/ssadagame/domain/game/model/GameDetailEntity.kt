@@ -23,7 +23,7 @@ class GameDetailEntity(
     val id: Long? = null,
     val appId: Long,
     val name: String,
-    val type: String,
+    val type: Type,
     val headerImage: String,
     val capsuleImage: String,
     @Convert(converter = StringListConverter::class)
