@@ -1,0 +1,11 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/ssadagame
+    username: ssadagame
+    password: ssadagame

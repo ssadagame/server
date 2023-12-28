@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.data:spring-data-redis")
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.2")
 }
