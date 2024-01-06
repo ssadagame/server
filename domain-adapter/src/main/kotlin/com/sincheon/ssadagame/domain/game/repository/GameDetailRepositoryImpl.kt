@@ -14,7 +14,9 @@ class GameDetailRepositoryImpl(
     private val genreJpaRepository: GenreJpaRepository,
     private val gameDetailGenreJpaRepository: GameDetailGenreJpaRepository,
 ) : GameDetailRepository {
-    override fun getGameDetail(appId: Long) = gameDetailJpaRepository.findByAppId(appId)?.toDto()
+    override fun findByAppId(appId: Long) = gameDetailJpaRepository.findByAppId(appId)?.toDto()
+
+    override fun existsByAppId(appId: Long) = gameDetailJpaRepository.existsByAppId(appId)
 
     override fun save(gameDetail: GameDetail): GameDetail {
         val gameDetailEntity = gameDetailJpaRepository.save(gameDetail.toEntity())

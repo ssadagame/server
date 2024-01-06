@@ -1,9 +1,54 @@
 spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: false
   datasource:
-    url: jdbc:mysql://localhost:3306/ssadagame_batch
-    username: root
-    password: rnjs02891@
     driver-class-name: com.mysql.cj.jdbc.Driver
   batch:
     jdbc:
       initialize-schema: always
+
+---
+spring.config.activate.on-profile: local
+
+spring:
+  datasource:
+    api:
+      url: jdbc:mysql://localhost:3306/ssadagame?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+      username: ssadagame
+      password: ssadagame
+    batch:
+      url: jdbc:mysql://localhost:3306/ssadagame_batch?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+      username: ssadagame
+      password: ssadagame
+
+---
+spring.config.activate.on-profile: dev
+
+spring:
+  datasource:
+    api:
+      url: jdbc:mysql://localhost:3306/ssadagame?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+      username: ssadagame
+      password: ssadagame
+    batch:
+      url: jdbc:mysql://localhost:3306/ssadagame_batch?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+      username: ssadagame
+      password: ssadagame
+
+---
+spring.config.activate.on-profile: prod
+
+spring:
+  datasource:
+    api:
+      url: jdbc:mysql://localhost:3306/ssadagame?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+      username: ssadagame
+      password: ssadagame
+    batch:
+      url: jdbc:mysql://localhost:3306/ssadagame_batch?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+      username: ssadagame
+      password: ssadagame

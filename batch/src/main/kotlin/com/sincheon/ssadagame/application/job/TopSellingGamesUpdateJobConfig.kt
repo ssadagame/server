@@ -9,22 +9,21 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-class TopGamePriceUpdateJobConfig(
+class TopSellingGamesUpdateJobConfig(
     private val jobBuilderFactory: JobBuilderFactory,
     private val stepBuilderFactory: StepBuilderFactory,
     private val tasklet: TopSellingGamesUpdateTasklet,
 ) {
-
-    @Bean
-    fun topGamePriceUpdateJob(
-        step: Step,
-    ) = jobBuilderFactory.get("topGamePriceUpdateJob")
+    @Bean("topSellingGamesUpdateJob")
+    fun topSellingGamesUpdateJob(
+        topSellingGamesUpdateStep: Step,
+    ) = jobBuilderFactory.get("topSellingGamesUpdateJob")
         .incrementer(RunIdIncrementer())
-        .start(step)
+        .start(topSellingGamesUpdateStep)
         .build()
 
-    @Bean
-    fun step() = stepBuilderFactory.get("step1")
+    @Bean("topSellingGamesUpdateStep")
+    fun topSellingGamesUpdateStep() = stepBuilderFactory.get("topSellingGamesUpdateStep")
         .tasklet(tasklet)
         .build()
 }

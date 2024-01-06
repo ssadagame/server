@@ -1,9 +1,10 @@
 package com.sincheon.ssadagame.domain.game.model
 
 data class GameDetail(
-    val id: Long,
+    val id: Long? = null,
     val appId: Long,
-    val name: String,
+    val englishName: String? = null,
+    val koreanName: String,
     val type: Type,
     val headerImage: String,
     val capsuleImage: String,

@@ -18,7 +18,8 @@ import javax.persistence.Table
     name = "game_detail",
     indexes = [
         Index(name = "idx_app_id", columnList = "appId", unique = true),
-        Index(name = "idx_name", columnList = "name", unique = false),
+        Index(name = "idx_english_name", columnList = "englishName", unique = false),
+        Index(name = "idx_korean_name", columnList = "koreanName", unique = false),
     ]
 )
 class GameDetailEntity(
@@ -26,7 +27,8 @@ class GameDetailEntity(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
     val appId: Long,
-    val name: String,
+    val englishName: String,
+    val koreanName: String,
     @Enumerated(EnumType.STRING)
     val type: Type,
     val headerImage: String,

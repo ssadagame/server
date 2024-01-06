@@ -1,6 +1,6 @@
 package com.sincheon.ssadagame.application.service
 
-import com.sincheon.ssadagame.domain.game.model.Game
+import com.sincheon.ssadagame.domain.game.model.GameDetail
 import com.sincheon.ssadagame.domain.game.model.GamePage
 import com.sincheon.ssadagame.domain.game.repository.GameDetailRepository
 import com.sincheon.ssadagame.domain.game.service.TopSellingGames
@@ -15,8 +15,7 @@ class GameService(
         return topSellingGames.get(page, size) ?: throw IllegalStateException()
     }
 
-    fun getGamePrice(appId: Long): Game {
-        val name = gameDetailRepository.getGameDetail(appId) ?: throw IllegalArgumentException()
-        return Game(name)
+    fun getGameDetailByAppId(appId: Long): GameDetail {
+        return gameDetailRepository.findByAppId(appId) ?: throw IllegalArgumentException()
     }
 }

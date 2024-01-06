@@ -1,5 +1,6 @@
 package com.sincheon.ssadagame.infrastructure.redis
 
+import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.data.redis.core.StringRedisTemplate
 import org.springframework.data.redis.core.ValueOperations
@@ -10,7 +11,7 @@ class SimpleRedisTemplate(
     val objectMapper: ObjectMapper,
 ) {
     inline fun <reified T> get(key: String): T? {
-        return valueOperations.get(key)?.let { objectMapper.readValue(it, T::class.java) }
+        return valueOperations.get(key)?.let { objectMapper.readValue(it, object : TypeReference<T>() {}) }
     }
 
     fun set(key: String, value: Any) {

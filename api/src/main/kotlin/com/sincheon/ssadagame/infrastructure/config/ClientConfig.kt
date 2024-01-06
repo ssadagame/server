@@ -4,8 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.sincheon.ssadagame.infrastructure.client.HTMLInterceptor
 import com.sincheon.ssadagame.infrastructure.client.greenmangaming.GreenmanGamingClient
 import com.sincheon.ssadagame.infrastructure.client.greenmangaming.GreenmanGamingMapper
-import com.sincheon.ssadagame.infrastructure.client.steam.SteamClient
+import com.sincheon.ssadagame.infrastructure.client.steam.SteamApiClient
 import com.sincheon.ssadagame.infrastructure.client.steam.SteamHTMLClient
+import com.sincheon.ssadagame.infrastructure.client.steam.SteamStoreClient
 import com.sincheon.ssadagame.infrastructure.config.properties.ClientProperties
 import okhttp3.OkHttpClient
 import org.springframework.context.annotation.Bean
@@ -20,16 +21,22 @@ class ClientConfig(
 ) {
     @Bean
     fun steamHTMLClient(): SteamHTMLClient = retrofit()
-        .baseUrl(clientProperties.steam.serverUrl)
+        .baseUrl(clientProperties.steam.storeUrl)
         .client(clientForHTML())
         .build()
         .create(SteamHTMLClient::class.java)
 
     @Bean
-    fun steamClient(): SteamClient = retrofit()
-        .baseUrl(clientProperties.steam.serverUrl)
+    fun steamStoreClient(): SteamStoreClient = retrofit()
+        .baseUrl(clientProperties.steam.storeUrl)
         .build()
-        .create(SteamClient::class.java)
+        .create(SteamStoreClient::class.java)
+
+    @Bean
+    fun steamApiClient(): SteamApiClient = retrofit()
+        .baseUrl(clientProperties.steam.apiUrl)
+        .build()
+        .create(SteamApiClient::class.java)
 
     @Bean
     fun greenmanGamingClient(): GreenmanGamingClient = retrofit()
