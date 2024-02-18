@@ -20,6 +20,14 @@ ENV APP_HOME=/app
 ENV JAR_FILE=${APP_NAME}-0.0.1-SNAPSHOT.jar
 COPY --from=build ${APP_HOME}/${APP_NAME}/build/libs/${JAR_FILE} .
 
+ARG APP_PHASE
+ENV APP_PHASE=${APP_PHASE}
+
+ARG DB_USERNAME
+ENV DB_USERNAME=${DB_USERNAME}
+ARG DB_PASSWORD
+ENV DB_PASSWORD=${DB_PASSWORD}
+
 ENTRYPOINT java \
   -Dspring.profiles.active=${APP_PHASE:-dev} \
   -Dsun.net.inetaddr.ttl=0 \

@@ -32,12 +32,12 @@ spring:
   datasource:
     api:
       url: jdbc:mysql://database-1.c92uwi206pce.ap-northeast-2.rds.amazonaws.com:3306/ssadagame?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
-      username: ssadagame
-      password: ssadagame
+      username: ${DB_USERNAME}
+      password: ${DB_PASSWORD}
     batch:
       url: jdbc:mysql://database-1.c92uwi206pce.ap-northeast-2.rds.amazonaws.com:3306/ssadagame_batch?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
-      username: ssadagame
-      password: ssadagame
+      username: ${DB_USERNAME}
+      password: ${DB_PASSWORD}
 
 ---
 spring.config.activate.on-profile: prod
@@ -46,9 +46,9 @@ spring:
   datasource:
     api:
       url: jdbc:mysql://database-1.c92uwi206pce.ap-northeast-2.rds.amazonaws.com:3306/ssadagame?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
-      username: ssadagame
-      password: ssadagame
+      username: ${DB_USERNAME}
+      password: ${DB_PASSWORD}
     batch:
       url: jdbc:mysql://database-1.c92uwi206pce.ap-northeast-2.rds.amazonaws.com:3306/ssadagame_batch?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
-      username: ssadagame
-      password: ssadagame
+      username: ${DB_USERNAME}
+      password: ${DB_PASSWORD}
