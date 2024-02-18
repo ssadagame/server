@@ -31,11 +31,11 @@ spring.config.activate.on-profile: dev
 spring:
   datasource:
     api:
-      url: jdbc:mysql://localhost:3306/ssadagame?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+      url: jdbc:mysql://database-1.c92uwi206pce.ap-northeast-2.rds.amazonaws.com:3306/ssadagame?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
       username: ssadagame
       password: ssadagame
     batch:
-      url: jdbc:mysql://localhost:3306/ssadagame_batch?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+      url: jdbc:mysql://database-1.c92uwi206pce.ap-northeast-2.rds.amazonaws.com:3306/ssadagame_batch?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
       username: ssadagame
       password: ssadagame
 
@@ -45,10 +45,10 @@ spring.config.activate.on-profile: prod
 spring:
   datasource:
     api:
-      url: jdbc:mysql://localhost:3306/ssadagame?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+      url: jdbc:mysql://database-1.c92uwi206pce.ap-northeast-2.rds.amazonaws.com:3306/ssadagame?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
       username: ssadagame
       password: ssadagame
     batch:
-      url: jdbc:mysql://localhost:3306/ssadagame_batch?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+      url: jdbc:mysql://database-1.c92uwi206pce.ap-northeast-2.rds.amazonaws.com:3306/ssadagame_batch?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
       username: ssadagame
       password: ssadagame
