@@ -22,10 +22,10 @@ class GameDetailRepositoryImpl(
         val gameDetailEntity = gameDetailJpaRepository.save(gameDetail.toEntity())
         gameDetail.genres.forEach { genre ->
             val genreEntity = genreJpaRepository.findByName(genre.name) ?: genreJpaRepository.save(genre.toEntity())
-            gameDetailGenreJpaRepository.findByIdOrNull(GameDetailGenreKey(gameDetailEntity.id!!, genre.id))
+            gameDetailGenreJpaRepository.findByIdOrNull(GameDetailGenreKey(gameDetailEntity.id!!, genreEntity.id!!))
                 ?: gameDetailGenreJpaRepository.save(
                     GameDetailGenreEntity(
-                        id = GameDetailGenreKey(gameDetailEntity.id!!, genre.id),
+                        id = GameDetailGenreKey(gameDetailEntity.id!!, genreEntity.id!!),
                         gameDetail = gameDetailEntity,
                         genre = genreEntity,
                     )

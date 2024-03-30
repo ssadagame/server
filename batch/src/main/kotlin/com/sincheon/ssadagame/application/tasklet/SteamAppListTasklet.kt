@@ -39,7 +39,11 @@ class SteamAppListTasklet(
                         id = gameDetailRepository.findByAppId(it.appId)?.id ?: it.id,
                         englishName = app.name
                     )?.also { gameDetail ->
-                        logger.info("gameDetail: $gameDetail")
+                        if (gameDetail.id == null) {
+                            logger.info("save gameDetail: $gameDetail")
+                        } else {
+                            logger.info("update gameDetail: $gameDetail")
+                        }
                         gameDetailRepository.save(gameDetail)
                     }
                     logger.info("Success Steam App Id: ${app.appId}")
