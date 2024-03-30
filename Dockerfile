@@ -28,8 +28,12 @@ ENV DB_USERNAME=${DB_USERNAME}
 ARG DB_PASSWORD
 ENV DB_PASSWORD=${DB_PASSWORD}
 
+ARG BATCH_JOB_NAME
+ENV BATCH_JOB_NAME=${BATCH_JOB_NAME}
+
 ENTRYPOINT java \
   -Dspring.profiles.active=${APP_PHASE:-dev} \
+  -Dspring.batch.job.names=${BATCH_JOB_NAME:-NONE} \
   -Dsun.net.inetaddr.ttl=0 \
   -XX:+TieredCompilation \
   -XX:+UseNUMA \
